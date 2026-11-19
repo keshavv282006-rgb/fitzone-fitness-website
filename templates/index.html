@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITZONE | Personal Fitness Trainer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">FIT<span>ZONE</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#workouts">Workouts</a>
+        <a href="#bmi">BMI Calculator</a>
+        <a href="#diet">Diet Plan</a>
+    </nav>
+
+    <a href="#workouts" class="nav-btn">Start Training</a>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="tag">YOUR PERSONAL FITNESS TRAINER</p>
+
+        <h1>BUILD YOUR<br><span>BEST VERSION.</span></h1>
+
+        <p class="hero-description">
+            Train smarter, eat better and stay consistent.
+            Your fitness journey starts today.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#workouts" class="primary-btn">Start Workout →</a>
+            <a href="#bmi" class="secondary-btn">Calculate BMI</a>
+        </div>
+
+        <div class="stats">
+            <div>
+                <h2>7</h2>
+                <p>Workout Days</p>
+            </div>
+
+            <div>
+                <h2>24/7</h2>
+                <p>Fitness Motivation</p>
+            </div>
+
+            <div>
+                <h2>100%</h2>
+                <p>Your Commitment</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=85"
+             alt="Gym fitness training">
+        <div class="image-label">
+            <span class="green-dot"></span>
+            TRAIN HARD. STAY STRONG.
+        </div>
+    </div>
+</section>
+
+<section class="section" id="workouts">
+    <div class="section-heading">
+        <p class="tag">TRAINING PROGRAMS</p>
+        <h2>Choose Your <span>Workout</span></h2>
+        <p>Choose your fitness goal and get a personalized weekly workout plan.</p>
+    </div>
+
+    <div class="goal-grid">
+        <div class="goal-card">
+            <div class="goal-icon">🔥</div>
+            <h3>Weight Loss</h3>
+            <p>Cardio and strength workouts to help improve fitness and support fat loss.</p>
+            <button onclick="generateWorkout('weight_loss')">View Plan →</button>
+        </div>
+
+        <div class="goal-card">
+            <div class="goal-icon">💪</div>
+            <h3>Muscle Building</h3>
+            <p>Strength-based training for muscle growth and progressive improvement.</p>
+            <button onclick="generateWorkout('muscle_gain')">View Plan →</button>
+        </div>
+
+        <div class="goal-card">
+            <div class="goal-icon">⚡</div>
+            <h3>General Fitness</h3>
+            <p>Balanced exercise routines to improve strength, stamina and mobility.</p>
+            <button onclick="generateWorkout('fitness')">View Plan →</button>
+        </div>
+    </div>
+
+    <div id="workout-result" class="result-box hidden">
+        <h2 id="workout-title"></h2>
+        <p id="workout-description"></p>
+        <div id="workout-days" class="days-grid"></div>
+    </div>
+</section>
+
+<section class="section bmi-section" id="bmi">
+    <div class="bmi-container">
+        <div class="bmi-info">
+            <p class="tag">HEALTH CHECK</p>
+            <h2>Know Your <span>BMI</span></h2>
+            <p>
+                Enter your height and weight to calculate your
+                Body Mass Index (BMI).
+            </p>
+
+            <div class="bmi-note">
+                BMI is a general screening measure, not a diagnosis.
+            </div>
+        </div>
+
+        <div class="bmi-card">
+            <h3>BMI Calculator</h3>
+
+            <div class="form-group">
+                <label>Height (cm)</label>
+                <input type="number" id="height" placeholder="e.g. 175">
+            </div>
+
+            <div class="form-group">
+                <label>Weight (kg)</label>
+                <input type="number" id="weight" placeholder="e.g. 70">
+            </div>
+
+            <button class="primary-btn full-btn" onclick="calculateBMI()">
+                Calculate BMI
+            </button>
+
+            <div id="bmi-result" class="bmi-result hidden"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="diet">
+    <div class="section-heading">
+        <p class="tag">FUEL YOUR BODY</p>
+        <h2>Daily <span>Nutrition Plan</span></h2>
+        <p>Simple everyday meal ideas to support your fitness routine.</p>
+    </div>
+
+    <div class="diet-grid">
+        <div class="diet-card">
+            <div class="meal-icon">🌅</div>
+            <h3>Breakfast</h3>
+            <ul>
+                <li>Oats and milk</li>
+                <li>Banana or other fruit</li>
+                <li>Eggs or paneer</li>
+            </ul>
+        </div>
+
+        <div class="diet-card">
+            <div class="meal-icon">☀️</div>
+            <h3>Lunch</h3>
+            <ul>
+                <li>Roti or rice</li>
+                <li>Dal and vegetables</li>
+                <li>Curd and salad</li>
+            </ul>
+        </div>
+
+        <div class="diet-card">
+            <div class="meal-icon">🥜</div>
+            <h3>Snack</h3>
+            <ul>
+                <li>Seasonal fruits</li>
+                <li>Roasted chana</li>
+                <li>Peanuts or nuts</li>
+            </ul>
+        </div>
+
+        <div class="diet-card">
+            <div class="meal-icon">🌙</div>
+            <h3>Dinner</h3>
+            <ul>
+                <li>Roti and vegetables</li>
+                <li>Paneer or dal</li>
+                <li>Fresh salad</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section tracker-section">
+    <div class="section-heading">
+        <p class="tag">DAILY HABITS</p>
+        <h2>Your Daily <span>Activity</span></h2>
+    </div>
+
+    <div class="tracker-grid">
+
+        <div class="tracker-card">
+            <h3>💧 Water Tracker</h3>
+            <p>Track glasses of water</p>
+
+            <div class="water-count">
+                <span id="water-count">0</span> / 8 glasses
+            </div>
+
+            <div class="water-bar">
+                <div id="water-progress"></div>
+            </div>
+
+            <button onclick="addWater()" class="primary-btn">+ Add Water</button>
+            <button onclick="resetWater()" class="reset-btn">Reset</button>
+        </div>
+
+        <div class="tracker-card">
+            <h3>🏋️ Workout Tracker</h3>
+            <p>Complete your daily exercise</p>
+
+            <div class="workout-count">
+                <span id="workout-count">0</span> workouts completed
+            </div>
+
+            <button onclick="completeWorkout()" class="primary-btn">
+                Complete Workout
+            </button>
+
+            <button onclick="resetWorkout()" class="reset-btn">
+                Reset
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <p class="tag">NO EXCUSES</p>
+    <h2>YOUR ONLY LIMIT<br>IS <span>YOU.</span></h2>
+    <a href="#workouts" class="primary-btn">Start Your Journey →</a>
+</section>
+
+<footer>
+    <div class="logo">FIT<span>ZONE</span></div>
+    <p>Your personal fitness companion.</p>
+    <p>© 2026 FITZONE | Fitness Trainer Project</p>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,570 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --green: #b7ff32;
+    --black: #090b09;
+    --card: #151815;
+    --grey: #a3a7a3;
+    --white: #f6f7f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+}
+
+.navbar {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    border-bottom: 1px solid #202420;
+    background: #090b09;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span,
+h1 span,
+h2 span {
+    color: var(--green);
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #d0d0d0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+.nav-btn {
+    text-decoration: none;
+    background: var(--green);
+    color: black;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.hero {
+    padding: 70px 8%;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    min-height: 600px;
+}
+
+.tag {
+    color: var(--green);
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 6vw, 84px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.hero-description {
+    color: var(--grey);
+    max-width: 470px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    padding: 15px 22px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.primary-btn {
+    background: var(--green);
+    color: #080a08;
+}
+
+.primary-btn:hover {
+    background: #d1ff8a;
+}
+
+.secondary-btn {
+    background: #1c201c;
+    color: white;
+    border: 1px solid #333933;
+}
+
+.stats {
+    display: flex;
+    gap: 35px;
+    margin-top: 55px;
+}
+
+.stats h2 {
+    font-size: 28px;
+    color: var(--green);
+}
+
+.stats p {
+    font-size: 12px;
+    color: var(--grey);
+    margin-top: 8px;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 15px;
+    filter: brightness(.8);
+}
+
+.image-label {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: #111d13;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.green-dot {
+    display: inline-block;
+    background: var(--green);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.section {
+    padding: 80px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2,
+.bmi-info h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.section-heading p:not(.tag) {
+    color: var(--grey);
+    line-height: 1.7;
+}
+
+.goal-grid,
+.diet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.goal-card,
+.diet-card,
+.tracker-card {
+    background: var(--card);
+    border: 1px solid #242924;
+    border-radius: 12px;
+    padding: 30px;
+    transition: .3s;
+}
+
+.goal-card:hover,
+.diet-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--green);
+}
+
+.goal-icon,
+.meal-icon {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.goal-card h3,
+.diet-card h3 {
+    margin-bottom: 15px;
+    font-size: 21px;
+}
+
+.goal-card p {
+    color: var(--grey);
+    line-height: 1.7;
+    min-height: 80px;
+    font-size: 14px;
+}
+
+.goal-card button {
+    background: none;
+    border: none;
+    color: var(--green);
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.result-box {
+    margin-top: 40px;
+    background: #121712;
+    border: 1px solid #303a30;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.result-box h2 {
+    margin-bottom: 10px;
+}
+
+.result-box > p {
+    color: var(--grey);
+    margin-bottom: 25px;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.day-card {
+    background: #1b211b;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.day-card h3 {
+    color: var(--green);
+    margin-bottom: 12px;
+}
+
+.day-card ul {
+    list-style: none;
+}
+
+.day-card li {
+    color: #d0d4d0;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+.bmi-section {
+    background: #101410;
+}
+
+.bmi-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.bmi-info p {
+    color: var(--grey);
+    line-height: 1.8;
+}
+
+.bmi-note {
+    border-left: 3px solid var(--green);
+    padding-left: 15px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.bmi-card {
+    background: var(--card);
+    border: 1px solid #292f29;
+    border-radius: 15px;
+    padding: 35px;
+}
+
+.bmi-card h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #d0d4d0;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    background: #0b0d0b;
+    border: 1px solid #343934;
+    border-radius: 6px;
+    padding: 15px;
+    color: white;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    outline: 1px solid var(--green);
+}
+
+.full-btn {
+    width: 100%;
+}
+
+.bmi-result {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    background: #1c241c;
+}
+
+.bmi-result h2 {
+    font-size: 35px;
+    color: var(--green);
+    margin-bottom: 8px;
+}
+
+.diet-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.diet-card ul {
+    list-style: none;
+}
+
+.diet-card li {
+    color: var(--grey);
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.diet-card li::before {
+    content: "✓ ";
+    color: var(--green);
+}
+
+.tracker-section {
+    background: #0c0f0c;
+}
+
+.tracker-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.tracker-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.tracker-card p {
+    color: var(--grey);
+    margin-bottom: 25px;
+}
+
+.water-count,
+.workout-count {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.water-count span,
+.workout-count span {
+    color: var(--green);
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.water-bar {
+    background: #333933;
+    height: 12px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.water-bar div {
+    width: 0%;
+    height: 100%;
+    background: var(--green);
+    transition: .3s;
+}
+
+.reset-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.cta {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 60px;
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+footer {
+    text-align: center;
+    padding: 35px;
+    border-top: 1px solid #252925;
+    color: var(--grey);
+}
+
+footer p {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .goal-grid,
+    .diet-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bmi-container {
+        grid-template-columns: 1fr;
+    }
+
+    .days-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        height: auto;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 45px;
+    }
+
+    .hero-image img {
+        height: 300px;
+    }
+
+    .stats {
+        gap: 18px;
+    }
+
+    .stats h2 {
+        font-size: 23px;
+    }
+
+    .section {
+        padding: 55px 5%;
+    }
+
+    .goal-grid,
+    .diet-grid,
+    .tracker-grid,
+    .days-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2,
+    .bmi-info h2 {
+        font-size: 32px;
+    }
+
+    .cta h2 {
+        font-size: 42px;
+    }
+
+    .bmi-card {
+        padding: 25px;
+    }
+}
